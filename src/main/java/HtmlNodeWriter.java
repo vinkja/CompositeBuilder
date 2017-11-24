@@ -13,6 +13,7 @@ public class HtmlNodeWriter {
             .append(node.name)
             .append(attributes)
             .append(TAG_CLOSE)
+            .append(node.children.stream().map((child) -> HtmlNodeWriter.write(child)).collect(Collectors.joining()))
             .append(CLOSING_TAG_OPEN)
             .append(node.name)
             .append(TAG_CLOSE)

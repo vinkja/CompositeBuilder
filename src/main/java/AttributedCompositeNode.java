@@ -21,8 +21,9 @@ public class AttributedCompositeNode {
     return this;
   }
 
-  public void addChild(AttributedCompositeNode child) {
+  public AttributedCompositeNode addChild(AttributedCompositeNode child) {
     children.add(child);
     child.parent = this;
+    return this;
   }
 }
