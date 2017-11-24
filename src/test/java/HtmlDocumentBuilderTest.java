@@ -57,10 +57,11 @@ public class HtmlDocumentBuilderTest {{
   describe("Composition", () -> {
     it("should be possible to create one level nested html", () -> {
       HtmlDocumentBuilder builder = HtmlDocumentBuilder.create("html5");
+
       AttributedCompositeNode root = AttributedCompositeNode.create("html");
+      root.addChild(HtmlNodeFactory.createA("about:blank"));
 
       builder.setRoot(root);
-      root.addChild(HtmlNodeFactory.createA("about:blank"));
       String html = builder.generateHtml();
 
       expect(html).toEqual("html5\n<html><a href='about:blank'></a></html>");

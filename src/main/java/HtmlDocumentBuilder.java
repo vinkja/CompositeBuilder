@@ -1,5 +1,7 @@
+import java.util.Objects;
+
 public class HtmlDocumentBuilder {
-  public String doctype;
+  private String doctype;
   private AttributedCompositeNode root;
 
   public HtmlDocumentBuilder(String doctype) {
@@ -16,7 +18,7 @@ public class HtmlDocumentBuilder {
 
   public String generateHtml() {
     StringBuilder builder = new StringBuilder();
-    if(doctype != null && doctype.trim() != ""){
+    if(doctype != null && !Objects.equals(doctype.trim(), "")){
       builder.append(doctype).append("\n");
     }
     if(root != null){

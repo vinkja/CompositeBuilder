@@ -11,10 +11,12 @@ public class IndentHtmlNodeWriterTest {{
   describe("One Nested Level", () -> {
     it("should indent with one space", () -> {
       AttributedCompositeNode root = AttributedCompositeNode.create("html");
-
       AttributedCompositeNode child1 = HtmlNodeFactory.createA("about:blank");
       AttributedCompositeNode child2 = HtmlNodeFactory.createA("about:blank");
-      root.addChild(child1).addChild(child2);
+      root
+        .addChild(child1)
+        .addChild(child2);
+
       String html = IndentHtmlNodeWriter.create(0).write(root);
 
       expect(html).toEqual("<html>\n <a href='about:blank'></a>\n <a href='about:blank'></a>\n</html>\n");

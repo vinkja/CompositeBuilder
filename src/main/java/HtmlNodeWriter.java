@@ -21,7 +21,7 @@ public class HtmlNodeWriter {
 
   protected StringBuilder writeChildren(AttributedCompositeNode node) {
     StringBuilder children = new StringBuilder();
-    node.children.stream().forEach((child) -> children.append(getWriter().write(child)));
+    node.children.forEach((child) -> children.append(getWriter().write(child)));
     return children;
   }
 
@@ -42,12 +42,12 @@ public class HtmlNodeWriter {
 
   protected StringBuilder writeAttributes(AttributedCompositeNode node) {
     StringBuilder attributes = new StringBuilder();
-    node.attributes.entrySet().stream().forEach((e) ->
-          attributes.append(new StringBuilder(BLANK)
-            .append(e.getKey())
+    node.attributes.forEach((key, value) -> attributes
+            .append(BLANK)
+            .append(key)
             .append("='")
-            .append(e.getValue())
-            .append("'").toString()));
+            .append(value)
+            .append("'"));
     return attributes;
   }
 }
