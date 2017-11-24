@@ -13,7 +13,7 @@ public class HtmlNodeWriterTest {{
       AttributedCompositeNode root = AttributedCompositeNode.create("html");
 
       root.addChild(HtmlNodeFactory.createA("about:blank"));
-      String html = HtmlNodeWriter.write(root);
+      String html = HtmlNodeWriter.create().write(root);
 
       expect(html).toEqual("<html><a href='about:blank'></a></html>");
     });
@@ -29,7 +29,7 @@ public class HtmlNodeWriterTest {{
                       .addChild(nestedSpan))
               .addChild(a2);
 
-      String html = HtmlNodeWriter.write(root);
+      String html = HtmlNodeWriter.create().write(root);
 
       expect(html).toEqual(
               "<html>" +

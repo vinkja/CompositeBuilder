@@ -21,6 +21,13 @@ public class AttributedCompositeNode {
     return this;
   }
 
+  public Boolean isLastChild(){
+    if(parent == null){
+      return true;
+    }
+    return parent.children.get(parent.children.size()-1).equals(this);
+  }
+
   public AttributedCompositeNode addChild(AttributedCompositeNode child) {
     children.add(child);
     child.parent = this;

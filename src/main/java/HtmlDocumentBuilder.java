@@ -20,7 +20,7 @@ public class HtmlDocumentBuilder {
       builder.append(doctype).append("\n");
     }
     if(root != null){
-      builder.append(HtmlNodeWriter.write(root));
+      builder.append(HtmlNodeWriter.create().write(root));
     }
     return builder.toString();
   }
