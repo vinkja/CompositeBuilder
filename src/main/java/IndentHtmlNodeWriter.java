@@ -1,20 +1,21 @@
 import java.util.Collections;
 
-public class IndentHtmlNodeWriter extends HtmlNodeWriter {
+public class IndentHtmlNodeWriter extends HtmlNodeWriterDecorator {
   public static final String BLANK = " ";
   private Integer level = 0;
 
-  public IndentHtmlNodeWriter(Integer level) {
+  private IndentHtmlNodeWriter(Integer level, HtmlNodeWriterBase nested) {
+    super(nested);
     this.level = level;
   }
 
-  public static IndentHtmlNodeWriter create(Integer level){
-    return new IndentHtmlNodeWriter(level);
+  public static IndentHtmlNodeWriter create(Integer level, HtmlNodeWriterBase nested){
+    return new IndentHtmlNodeWriter(level, nested);
   }
 
   @Override
-  protected HtmlNodeWriter getWriter() {
-    return IndentHtmlNodeWriter.create(level);
+  protected HtmlNodeWriterBase getWriter() {
+    return IndentHtmlNodeWriter.create(level, nested);
   }
 
   @Override

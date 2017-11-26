@@ -4,7 +4,7 @@ public class HtmlNodeWriter extends HtmlNodeWriterBase {
   private static final String CLOSING_TAG_OPEN = "</";
   private static final String BLANK = " ";
 
-  protected HtmlNodeWriter(){}
+  private HtmlNodeWriter(){}
 
   public static HtmlNodeWriter create(){
     return new HtmlNodeWriter();

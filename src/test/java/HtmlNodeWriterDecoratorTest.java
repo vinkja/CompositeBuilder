@@ -6,7 +6,7 @@ import static com.mscharhag.oleaster.runner.StaticRunnerSupport.describe;
 import static com.mscharhag.oleaster.runner.StaticRunnerSupport.it;
 
 @RunWith(OleasterRunner.class)
-public class IndentHtmlNodeWriterTest {{
+public class HtmlNodeWriterDecoratorTest {{
 
   describe("One Nested Level", () -> {
     it("should indent with one space", () -> {
