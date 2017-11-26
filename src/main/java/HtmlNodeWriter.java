@@ -1,4 +1,4 @@
-public class HtmlNodeWriter {
+public class HtmlNodeWriter extends HtmlNodeWriterBase {
   private static final String TAG_OPEN = "<";
   private static final String TAG_CLOSE = ">";
   private static final String CLOSING_TAG_OPEN = "</";
@@ -10,21 +10,8 @@ public class HtmlNodeWriter {
     return new HtmlNodeWriter();
   }
 
-  public String write(AttributedCompositeNode node){
-    return writeStartTag(node)
-            .append(writeChildren(node))
-            .append(writeEndTag(node))
-            .toString();
-  }
-
   protected HtmlNodeWriter getWriter(){
     return HtmlNodeWriter.create();
-  }
-
-  protected StringBuilder writeChildren(AttributedCompositeNode node) {
-    StringBuilder children = new StringBuilder();
-    node.children.forEach((child) -> children.append(getWriter().write(child)));
-    return children;
   }
 
   protected StringBuilder writeStartTag(AttributedCompositeNode node){
