@@ -8,18 +8,19 @@ import static com.mscharhag.oleaster.runner.StaticRunnerSupport.it;
 @RunWith(OleasterRunner.class)
 public class HtmlNodeWriterDecoratorTest {{
 
-  describe("One Nested Level", () -> {
-    it("should indent with one space", () -> {
+  describe("Line numbers with indent", () -> {
+
+    it("should number indented lines", () -> {
       AttributedCompositeNode root = AttributedCompositeNode.create("html");
       AttributedCompositeNode child1 = HtmlNodeFactory.createA("about:blank");
       AttributedCompositeNode child2 = HtmlNodeFactory.createA("about:blank");
       root
-        .addChild(child1)
-        .addChild(child2);
+              .addChild(child1)
+              .addChild(child2);
 
-      String html = IndentHtmlNodeWriter.create(0, HtmlNodeWriter.create()).write(root);
+      String html = LineNumberHtmlNodeWriter.create(IndentHtmlNodeWriter.create(0, HtmlNodeWriter.create())).write(root);
 
-      expect(html).toEqual("<html>\n <a href='about:blank'></a>\n <a href='about:blank'></a>\n</html>\n");
+      expect(html).toEqual("1 <html>\n2  <a href='about:blank'></a>\n3  <a href='about:blank'></a>\n4 </html>");
     });
   });
 }}

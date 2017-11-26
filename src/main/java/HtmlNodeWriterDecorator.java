@@ -1,5 +1,4 @@
 public class HtmlNodeWriterDecorator extends HtmlNodeWriterBase {
-
   protected HtmlNodeWriterBase nested;
 
   public HtmlNodeWriterDecorator(HtmlNodeWriterBase nested) {

@@ -13,6 +13,10 @@ public class IndentHtmlNodeWriter extends HtmlNodeWriterDecorator {
     return new IndentHtmlNodeWriter(level, nested);
   }
 
+  public static IndentHtmlNodeWriter create(Integer level){
+    return new IndentHtmlNodeWriter(level, HtmlNodeWriter.create());
+  }
+
   @Override
   protected HtmlNodeWriterBase getWriter() {
     return IndentHtmlNodeWriter.create(level, nested);
