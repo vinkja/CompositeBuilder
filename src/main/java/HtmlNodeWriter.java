@@ -4,6 +4,8 @@ public class HtmlNodeWriter {
   private static final String CLOSING_TAG_OPEN = "</";
   private static final String BLANK = " ";
 
+  protected HtmlNodeWriter(){}
+
   public static HtmlNodeWriter create(){
     return new HtmlNodeWriter();
   }
