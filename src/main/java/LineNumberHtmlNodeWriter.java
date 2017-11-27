@@ -23,7 +23,6 @@ public class LineNumberHtmlNodeWriter extends HtmlNodeWriterDecorator {
   @Override
   public String write(AttributedCompositeNode node) {
     String html = nested.write(node);
-    System.out.println(html);
     final Integer[] line = {1};
     return Arrays.stream(html
             .split("\\n"))

@@ -8,19 +8,29 @@ import static com.mscharhag.oleaster.runner.StaticRunnerSupport.it;
 @RunWith(OleasterRunner.class)
 public class HtmlNodeWriterDecoratorTest {{
 
-  describe("Line numbers with indent", () -> {
+  describe("Decorator Combinations", () -> {
 
-    it("should number indented lines", () -> {
+    it("should number indented lines and capitalize tag names", () -> {
       AttributedCompositeNode root = AttributedCompositeNode.create("html");
-      AttributedCompositeNode child1 = HtmlNodeFactory.createA("about:blank");
-      AttributedCompositeNode child2 = HtmlNodeFactory.createA("about:blank");
+      AttributedCompositeNode link1 = HtmlNodeFactory.createA("about:blank1");
+      AttributedCompositeNode link2 = HtmlNodeFactory.createA("about:blank2");
+      AttributedCompositeNode span = HtmlNodeFactory.createSpan();
+
       root
-              .addChild(child1)
-              .addChild(child2);
+              .addChild(link1
+                      .addChild(span))
+              .addChild(link2);
 
-      String html = LineNumberHtmlNodeWriter.create(IndentHtmlNodeWriter.create(0, HtmlNodeWriter.create())).write(root);
-
-      expect(html).toEqual("1 <html>\n2  <a href='about:blank'></a>\n3  <a href='about:blank'></a>\n4 </html>");
+      String html = LineNumberHtmlNodeWriter.create(
+                      IndentHtmlNodeWriter.create(0,
+                              CapitalizedTagHtmlNodeWriter.create())).write(root);
+      System.out.println(html);
+      expect(html).toEqual("1 <HTML>\n" +
+                                 "2  <A href='about:blank1'>\n" +
+                                 "3   <SPAN></SPAN>\n" +
+                                 "4  </A>\n" +
+                                 "5  <A href='about:blank2'></A>\n" +
+                                 "6 </HTML>");
     });
   });
 }}

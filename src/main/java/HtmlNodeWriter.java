@@ -1,7 +1,7 @@
 public class HtmlNodeWriter extends HtmlNodeWriterBase {
-  private static final String TAG_OPEN = "<";
-  private static final String TAG_CLOSE = ">";
-  private static final String CLOSING_TAG_OPEN = "</";
+  public static final String TAG_OPEN = "<";
+  public static final String TAG_CLOSE = ">";
+  public static final String CLOSING_TAG_OPEN = "</";
   private static final String BLANK = " ";
 
   private HtmlNodeWriter(){}

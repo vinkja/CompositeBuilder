@@ -25,7 +25,9 @@ public class IndentHtmlNodeWriter extends HtmlNodeWriterDecorator {
   @Override
   protected StringBuilder writeChildren(AttributedCompositeNode node) {
     level += 1;
-    return super.writeChildren(node);
+    StringBuilder children = super.writeChildren(node);
+    level -= 1;
+    return children;
   }
 
   @Override
@@ -39,10 +41,15 @@ public class IndentHtmlNodeWriter extends HtmlNodeWriterDecorator {
 
   @Override
   protected StringBuilder writeEndTag(AttributedCompositeNode node) {
+    StringBuilder endTag = super.writeEndTag(node);
     if(node.isLastChild()){
-      return super.writeEndTag(node).append("\n");
+      return endTag.append("\n");
     }
-    return super.writeEndTag(node);
+    boolean closeTagIsOnSameLineAsOpenTag = node.children.size() == 0;
+    if(closeTagIsOnSameLineAsOpenTag){
+      return endTag;
+    }
+    return new StringBuilder().append(generateIndentSpaces(level)).append(endTag);
   }
 
   private String generateIndentSpaces(Integer level){

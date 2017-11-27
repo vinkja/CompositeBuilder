@@ -1,4 +1,7 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class AttributedCompositeNode {
   public String name;
@@ -13,7 +16,7 @@ public class AttributedCompositeNode {
   }
 
   public static AttributedCompositeNode create(String name) {
-    return new AttributedCompositeNode(name);
+    return new AttributedCompositeNode(name.trim());
   }
 
   public AttributedCompositeNode setAttribute(String key, String value) {
