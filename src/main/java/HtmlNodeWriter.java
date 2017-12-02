@@ -14,7 +14,7 @@ public class HtmlNodeWriter extends HtmlNodeWriterBase {
     return HtmlNodeWriter.create();
   }
 
-  protected StringBuilder writeStartTag(AttributedCompositeNode node){
+  protected StringBuilder writeStartTag(HtmlNode node){
     return new StringBuilder()
             .append(TAG_OPEN)
             .append(node.name)
@@ -22,14 +22,14 @@ public class HtmlNodeWriter extends HtmlNodeWriterBase {
             .append(TAG_CLOSE);
   }
 
-  protected StringBuilder writeEndTag(AttributedCompositeNode node){
+  protected StringBuilder writeEndTag(HtmlNode node){
     return new StringBuilder()
             .append(CLOSING_TAG_OPEN)
             .append(node.name)
             .append(TAG_CLOSE);
   }
 
-  protected StringBuilder writeAttributes(AttributedCompositeNode node) {
+  protected StringBuilder writeAttributes(HtmlNode node) {
     StringBuilder attributes = new StringBuilder();
     node.attributes.forEach((key, value) -> attributes
             .append(BLANK)

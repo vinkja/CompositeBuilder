@@ -23,7 +23,7 @@ public class IndentHtmlNodeWriter extends HtmlNodeWriterDecorator {
   }
 
   @Override
-  protected StringBuilder writeChildren(AttributedCompositeNode node) {
+  protected StringBuilder writeChildren(HtmlNode node) {
     level += 1;
     StringBuilder children = super.writeChildren(node);
     level -= 1;
@@ -31,7 +31,7 @@ public class IndentHtmlNodeWriter extends HtmlNodeWriterDecorator {
   }
 
   @Override
-  protected StringBuilder writeStartTag(AttributedCompositeNode node) {
+  protected StringBuilder writeStartTag(HtmlNode node) {
     StringBuilder startTag = super.writeStartTag(node);
     if(level == 0){
       return startTag;
@@ -40,7 +40,7 @@ public class IndentHtmlNodeWriter extends HtmlNodeWriterDecorator {
   }
 
   @Override
-  protected StringBuilder writeEndTag(AttributedCompositeNode node) {
+  protected StringBuilder writeEndTag(HtmlNode node) {
     StringBuilder endTag = super.writeEndTag(node);
     if(node.isLastChild()){
       return endTag.append("\n");

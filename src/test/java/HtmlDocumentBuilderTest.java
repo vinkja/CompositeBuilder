@@ -11,7 +11,7 @@ public class HtmlDocumentBuilderTest {{
   describe("Single node", () -> {
     it("should be possible to build a single node with doctype", () -> {
      HtmlDocumentBuilder builder = HtmlDocumentBuilder.create("html5");
-     AttributedCompositeNode node = AttributedCompositeNode.create("node");
+     HtmlNode node = HtmlNode.create("node");
      builder.setRoot(node);
 
      String html = builder.generateHtml();
@@ -35,7 +35,7 @@ public class HtmlDocumentBuilderTest {{
     it("should be possible to build a document with just one node", () -> {
       HtmlDocumentBuilder builder = HtmlDocumentBuilder.create("");
 
-      AttributedCompositeNode node = AttributedCompositeNode.create("node");
+      HtmlNode node = HtmlNode.create("node");
       builder.setRoot(node);
 
       String html = builder.generateHtml();
@@ -44,7 +44,7 @@ public class HtmlDocumentBuilderTest {{
 
     it("should be possible to build a single node with single attributes", () -> {
       HtmlDocumentBuilder builder = HtmlDocumentBuilder.create("");
-      AttributedCompositeNode node = AttributedCompositeNode.create("node");
+      HtmlNode node = HtmlNode.create("node");
       node.setAttribute("key", "value");
       node.setAttribute("key1", "value1");
       builder.setRoot(node);
@@ -58,7 +58,7 @@ public class HtmlDocumentBuilderTest {{
     it("should be possible to create one level nested html", () -> {
       HtmlDocumentBuilder builder = HtmlDocumentBuilder.create("html5");
 
-      AttributedCompositeNode root = AttributedCompositeNode.create("html");
+      HtmlNode root = HtmlNode.create("html");
       root.addChild(HtmlNodeFactory.createA("about:blank"));
 
       builder.setRoot(root);

@@ -8,22 +8,21 @@ import static com.mscharhag.oleaster.runner.StaticRunnerSupport.it;
 @RunWith(OleasterRunner.class)
 public class AttributedCompositeNodeTest {{
   describe("No Attributes", () -> {
-    it("should be possible to create a node without attributes but a name", () -> {
-     AttributedCompositeNode node = AttributedCompositeNode.create("node");
-     expect(node.name).toEqual("node");
+    it("should be possible to create a node without attributes", () -> {
+     AttributedCompositeNode node = AttributedCompositeNode.create();
     });
   });
 
   describe("With Attributes", () -> {
     it("should be possible to set multiple attributes (key, values)", () -> {
-      AttributedCompositeNode node = AttributedCompositeNode.create("node");
+      AttributedCompositeNode node = AttributedCompositeNode.create();
       node.setAttribute("key", "value");
       node.setAttribute("key1", "value1");
       expect(node.attributes.size()).toEqual(2);
     });
 
     it("should overwrite existing keys", () -> {
-      AttributedCompositeNode node = AttributedCompositeNode.create("node");
+      AttributedCompositeNode node = AttributedCompositeNode.create();
       node.setAttribute("key", "value");
       node.setAttribute("key", "value1");
       expect(node.attributes.get("key")).toEqual("value1");
@@ -32,14 +31,14 @@ public class AttributedCompositeNodeTest {{
 
   describe("Composition", () -> {
     it("should have access to added children", () -> {
-      AttributedCompositeNode node = AttributedCompositeNode.create("node");
+      AttributedCompositeNode node = AttributedCompositeNode.create();
       node.addChild(node);
       expect(node.children.size()).toEqual(1);
     });
 
     describe("Child", () -> {
       it("should have access to parent", () -> {
-        AttributedCompositeNode node = AttributedCompositeNode.create("node");
+        AttributedCompositeNode node = AttributedCompositeNode.create();
         node.addChild(node);
         expect(node.parent).toEqual(node);
       });

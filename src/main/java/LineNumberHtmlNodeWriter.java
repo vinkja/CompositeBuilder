@@ -21,7 +21,7 @@ public class LineNumberHtmlNodeWriter extends HtmlNodeWriterDecorator {
   }
 
   @Override
-  public String write(AttributedCompositeNode node) {
+  public String write(HtmlNode node) {
     String html = nested.write(node);
     final Integer[] line = {1};
     return Arrays.stream(html

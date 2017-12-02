@@ -11,10 +11,10 @@ public class HtmlNodeWriterDecoratorTest {{
   describe("Decorator Combinations", () -> {
 
     it("should number indented lines and capitalize tag names", () -> {
-      AttributedCompositeNode root = AttributedCompositeNode.create("html");
-      AttributedCompositeNode link1 = HtmlNodeFactory.createA("about:blank1");
-      AttributedCompositeNode link2 = HtmlNodeFactory.createA("about:blank2");
-      AttributedCompositeNode span = HtmlNodeFactory.createSpan();
+      HtmlNode root = HtmlNode.create("html");
+      HtmlNode link1 = HtmlNodeFactory.createA("about:blank1");
+      HtmlNode link2 = HtmlNodeFactory.createA("about:blank2");
+      HtmlNode span = HtmlNodeFactory.createSpan();
 
       root
               .addChild(link1

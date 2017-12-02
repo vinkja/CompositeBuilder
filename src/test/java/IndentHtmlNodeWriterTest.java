@@ -10,9 +10,9 @@ public class IndentHtmlNodeWriterTest {{
 
   describe("One Nested Level", () -> {
     it("should indent with one space", () -> {
-      AttributedCompositeNode root = AttributedCompositeNode.create("html");
-      AttributedCompositeNode child1 = HtmlNodeFactory.createA("about:blank");
-      AttributedCompositeNode child2 = HtmlNodeFactory.createA("about:blank");
+      HtmlNode root = HtmlNode.create("html");
+      HtmlNode child1 = HtmlNodeFactory.createA("about:blank");
+      HtmlNode child2 = HtmlNodeFactory.createA("about:blank");
       root
         .addChild(child1)
         .addChild(child2);

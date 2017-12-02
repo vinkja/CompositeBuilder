@@ -10,7 +10,7 @@ public class HtmlNodeWriterTest {{
 
   describe("Composition", () -> {
     it("should be possible to create one level nested html", () -> {
-      AttributedCompositeNode root = AttributedCompositeNode.create("html");
+      HtmlNode root = HtmlNode.create("html");
 
       root.addChild(HtmlNodeFactory.createA("about:blank"));
       String html = HtmlNodeWriter.create().write(root);
@@ -19,10 +19,10 @@ public class HtmlNodeWriterTest {{
     });
 
     it("should be possible to create two level nested html", () -> {
-      AttributedCompositeNode root = AttributedCompositeNode.create("html");
-      AttributedCompositeNode a1 = HtmlNodeFactory.createA("about:blank1");
-      AttributedCompositeNode a2 = HtmlNodeFactory.createA("about:blank2");
-      AttributedCompositeNode nestedSpan = AttributedCompositeNode.create("span");
+      HtmlNode root = HtmlNode.create("html");
+      HtmlNode a1 = HtmlNodeFactory.createA("about:blank1");
+      HtmlNode a2 = HtmlNodeFactory.createA("about:blank2");
+      HtmlNode nestedSpan = HtmlNode.create("span");
 
       root
               .addChild(a1

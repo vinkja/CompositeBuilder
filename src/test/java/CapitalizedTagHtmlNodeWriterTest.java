@@ -11,9 +11,9 @@ public class CapitalizedTagHtmlNodeWriterTest {{
   describe("Any nesting level", () -> {
 
     it("should write all tags in upper case", () -> {
-      AttributedCompositeNode root = AttributedCompositeNode.create("html");
-      AttributedCompositeNode child1 = HtmlNodeFactory.createA("about:blank");
-      AttributedCompositeNode child2 = HtmlNodeFactory.createSpan();
+      HtmlNode root = HtmlNode.create("html");
+      HtmlNode child1 = HtmlNodeFactory.createA("about:blank");
+      HtmlNode child2 = HtmlNodeFactory.createSpan();
       root
               .addChild(child1)
               .addChild(child2);

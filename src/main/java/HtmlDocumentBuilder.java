@@ -2,7 +2,7 @@ import java.util.Objects;
 
 public class HtmlDocumentBuilder {
   private String doctype;
-  private AttributedCompositeNode root;
+  private HtmlNode root;
 
   public HtmlDocumentBuilder(String doctype) {
     this.doctype = doctype;
@@ -12,7 +12,7 @@ public class HtmlDocumentBuilder {
     return new HtmlDocumentBuilder(doctype);
   }
 
-  public void setRoot(AttributedCompositeNode root) {
+  public void setRoot(HtmlNode root) {
     this.root = root;
   }
 

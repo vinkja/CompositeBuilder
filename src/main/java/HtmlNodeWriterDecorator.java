@@ -11,17 +11,17 @@ public class HtmlNodeWriterDecorator extends HtmlNodeWriterBase {
   }
 
   @Override
-  protected StringBuilder writeStartTag(AttributedCompositeNode node) {
+  protected StringBuilder writeStartTag(HtmlNode node) {
     return nested.writeStartTag(node);
   }
 
   @Override
-  protected StringBuilder writeEndTag(AttributedCompositeNode node) {
+  protected StringBuilder writeEndTag(HtmlNode node) {
     return nested.writeEndTag(node);
   }
 
   @Override
-  protected StringBuilder writeAttributes(AttributedCompositeNode node) {
+  protected StringBuilder writeAttributes(HtmlNode node) {
     return nested.writeAttributes(node);
   }
 }

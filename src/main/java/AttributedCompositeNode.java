@@ -4,19 +4,17 @@ import java.util.List;
 import java.util.Map;
 
 public class AttributedCompositeNode {
-  public String name;
   public Map<String, Object> attributes;
   public List<AttributedCompositeNode> children;
   public AttributedCompositeNode parent;
 
-  private AttributedCompositeNode(String name) {
-    this.name = name;
+  protected AttributedCompositeNode() {
     this.attributes = new LinkedHashMap<>();
     this.children = new ArrayList<>();
   }
 
-  public static AttributedCompositeNode create(String name) {
-    return new AttributedCompositeNode(name.trim());
+  public static AttributedCompositeNode create() {
+    return new AttributedCompositeNode();
   }
 
   public AttributedCompositeNode setAttribute(String key, String value) {

@@ -21,7 +21,7 @@ public class CapitalizedTagHtmlNodeWriter extends HtmlNodeWriterDecorator {
   }
 
   @Override
-  protected StringBuilder writeStartTag(AttributedCompositeNode node) {
+  protected StringBuilder writeStartTag(HtmlNode node) {
     String startTag = super.writeStartTag(node).toString();
     // Regex: "<" followed by at least one none white space, followed by either blank or ">"
     Matcher matcher = Pattern.compile("<[^\\s]+( |>)").matcher(startTag);
@@ -35,7 +35,7 @@ public class CapitalizedTagHtmlNodeWriter extends HtmlNodeWriterDecorator {
   }
 
   @Override
-  protected StringBuilder writeEndTag(AttributedCompositeNode node) {
+  protected StringBuilder writeEndTag(HtmlNode node) {
     String endTag = super.writeEndTag(node).toString();
     return new StringBuilder(endTag.toUpperCase());
   }
