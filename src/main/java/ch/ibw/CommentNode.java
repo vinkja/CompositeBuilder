@@ -1,5 +1,7 @@
 package ch.ibw;
 
+import ch.ibw.visitor.CompositeVisitor;
+
 public class CommentNode extends AttributedCompositeNode {
   public String comment;
 
@@ -14,7 +16,7 @@ public class CommentNode extends AttributedCompositeNode {
   }
 
   @Override
-  public void accept(NodeVisitor visitor) {
+  public void accept(CompositeVisitor visitor) {
     visitor.visit(this);
   }
 

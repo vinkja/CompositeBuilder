@@ -1,5 +1,7 @@
 package ch.ibw;
 
+import ch.ibw.visitor.CompositeVisitor;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,7 +21,7 @@ public class AttributedCompositeNode {
     return new AttributedCompositeNode();
   }
 
-  public void accept(NodeVisitor visitor){
+  public void accept(CompositeVisitor visitor) {
     visitor.visit(this);
   }
 

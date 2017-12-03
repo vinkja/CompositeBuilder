@@ -1,8 +1,6 @@
-package ch.ibw;
+package ch.ibw.decorator;
 
-import ch.ibw.decorator.HtmlNodeWriter;
-import ch.ibw.decorator.HtmlNodeWriterBase;
-import ch.ibw.decorator.HtmlNodeWriterDecorator;
+import ch.ibw.HtmlNode;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

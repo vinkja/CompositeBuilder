@@ -1,5 +1,7 @@
 package ch.ibw;
 
+import ch.ibw.visitor.CompositeVisitor;
+
 public class HtmlNode extends AttributedCompositeNode {
   public String name;
 
@@ -8,15 +10,14 @@ public class HtmlNode extends AttributedCompositeNode {
     this.name = name;
   }
 
+  public void accept(CompositeVisitor visitor) {
+    visitor.visit(this);
+  }
+
   @Override
   public HtmlNode setAttribute(String key, String value) {
     super.setAttribute(key, value);
     return this;
-  }
-
-  @Override
-  public void accept(NodeVisitor visitor) {
-    visitor.visit(this);
   }
 
   public static HtmlNode create(String name){
