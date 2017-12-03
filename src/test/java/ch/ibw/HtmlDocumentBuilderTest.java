@@ -1,3 +1,8 @@
+package ch.ibw;
+
+import ch.ibw.HtmlDocumentBuilder;
+import ch.ibw.HtmlNode;
+import ch.ibw.HtmlNodeFactory;
 import com.mscharhag.oleaster.runner.OleasterRunner;
 import org.junit.runner.RunWith;
 

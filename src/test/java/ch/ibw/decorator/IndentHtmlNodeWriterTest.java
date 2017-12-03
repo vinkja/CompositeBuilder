@@ -1,3 +1,7 @@
+package ch.ibw.decorator;
+
+import ch.ibw.HtmlNode;
+import ch.ibw.HtmlNodeFactory;
 import com.mscharhag.oleaster.runner.OleasterRunner;
 import org.junit.runner.RunWith;
 

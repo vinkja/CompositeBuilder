@@ -1,3 +1,6 @@
+package ch.ibw;
+
+import ch.ibw.AttributedCompositeNode;
 import com.mscharhag.oleaster.runner.OleasterRunner;
 import org.junit.runner.RunWith;
 

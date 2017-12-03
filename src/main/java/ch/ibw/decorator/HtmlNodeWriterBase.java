@@ -1,3 +1,7 @@
+package ch.ibw.decorator;
+
+import ch.ibw.HtmlNode;
+
 abstract public class HtmlNodeWriterBase {
 
   public String write(HtmlNode node){

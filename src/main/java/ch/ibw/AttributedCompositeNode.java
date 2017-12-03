@@ -1,3 +1,5 @@
+package ch.ibw;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -15,6 +17,10 @@ public class AttributedCompositeNode {
 
   public static AttributedCompositeNode create() {
     return new AttributedCompositeNode();
+  }
+
+  public void accept(NodeVisitor visitor){
+    visitor.visit(this);
   }
 
   public AttributedCompositeNode setAttribute(String key, String value) {

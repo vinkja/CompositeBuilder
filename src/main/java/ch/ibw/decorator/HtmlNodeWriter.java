@@ -1,3 +1,7 @@
+package ch.ibw.decorator;
+
+import ch.ibw.HtmlNode;
+
 public class HtmlNodeWriter extends HtmlNodeWriterBase {
   public static final String TAG_OPEN = "<";
   public static final String TAG_CLOSE = ">";

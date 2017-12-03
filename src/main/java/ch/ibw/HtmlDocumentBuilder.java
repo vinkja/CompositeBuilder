@@ -1,3 +1,7 @@
+package ch.ibw;
+
+import ch.ibw.decorator.HtmlNodeWriter;
+
 import java.util.Objects;
 
 public class HtmlDocumentBuilder {

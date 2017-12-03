@@ -1,3 +1,7 @@
+package ch.ibw.decorator;
+
+import ch.ibw.HtmlNode;
+
 public class HtmlNodeWriterDecorator extends HtmlNodeWriterBase {
   protected HtmlNodeWriterBase nested;
 

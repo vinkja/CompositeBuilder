@@ -1,3 +1,7 @@
+package ch.ibw.decorator;
+
+import ch.ibw.HtmlNode;
+
 import java.util.Collections;
 
 public class IndentHtmlNodeWriter extends HtmlNodeWriterDecorator {

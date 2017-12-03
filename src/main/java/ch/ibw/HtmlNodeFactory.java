@@ -1,3 +1,5 @@
+package ch.ibw;
+
 public class HtmlNodeFactory {
 
   public static HtmlNode createA(String href){

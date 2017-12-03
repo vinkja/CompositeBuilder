@@ -1,3 +1,7 @@
+package ch.ibw.decorator;
+
+import ch.ibw.HtmlNode;
+
 import java.util.Arrays;
 import java.util.stream.Collectors;
 

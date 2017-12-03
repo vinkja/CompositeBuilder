@@ -1,3 +1,5 @@
+package ch.ibw;
+
 public class HtmlNode extends AttributedCompositeNode {
   public String name;
 
@@ -10,6 +12,11 @@ public class HtmlNode extends AttributedCompositeNode {
   public HtmlNode setAttribute(String key, String value) {
     super.setAttribute(key, value);
     return this;
+  }
+
+  @Override
+  public void accept(NodeVisitor visitor) {
+    visitor.visit(this);
   }
 
   public static HtmlNode create(String name){
