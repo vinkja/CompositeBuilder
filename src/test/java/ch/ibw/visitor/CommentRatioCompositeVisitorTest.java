@@ -23,7 +23,7 @@ public class CommentRatioCompositeVisitorTest {{
               .addChild(HtmlNode.create("span")
                       .addChild(HtmlNode.create("div")));
 
-      node.accept(visitor);
+      visitor.acceptAll(node);
 
       expect(visitor.getPercentageOfComments()).toEqual(0.0);
     });
@@ -33,7 +33,7 @@ public class CommentRatioCompositeVisitorTest {{
 
       CommentNode node = CommentNode.create("my comment");
 
-      node.accept(visitor);
+      visitor.acceptAll(node);
 
       expect(visitor.getPercentageOfComments()).toEqual(100.0);
     });

@@ -5,6 +5,7 @@ import ch.ibw.CommentNode;
 import ch.ibw.HtmlNode;
 
 public class CapitalizingCompositeVisitor implements CompositeVisitor {
+
   @Override
   public void visit(CommentNode node) {
 

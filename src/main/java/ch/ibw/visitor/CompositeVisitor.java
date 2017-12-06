@@ -12,8 +12,8 @@ public interface CompositeVisitor {
 
   void visit(AttributedCompositeNode attributedCompositeNode);
 
-  default void acceptAll(AttributedCompositeNode root){
-    root.accept(this);
-    root.children.stream().forEach(child -> acceptAll(child));
+  default void acceptAll(AttributedCompositeNode node){
+    node.accept(this);
+    node.children.stream().forEach(child -> acceptAll(child));
   }
 }
