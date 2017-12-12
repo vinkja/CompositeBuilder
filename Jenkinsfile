@@ -18,4 +18,10 @@ node {
       junit 'target/surefire-reports/TEST-*.xml'
       archive 'target/*.jar'
    }
+   stage('SonarQube analysis') {
+       def scannerHome = tool 'SonarQube Scanner 3';
+       withSonarQubeEnv('local sonar qube') {
+         sh "${scannerHome}/bin/sonar-scanner"
+       }
+     }
 }
