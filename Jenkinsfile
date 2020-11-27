@@ -2,7 +2,7 @@ node {
    def mvnHome
    stage('Preparation') {
       // Get some code from a GitHub repository
-      git 'https://github.com/ibwgr/CompositeBuilder.git'
+      checkout scm
       // ** NOTE: This 'Maven 3' Maven tool must be configured in the global configuration.
       mvnHome = tool 'Maven 3'
    }
