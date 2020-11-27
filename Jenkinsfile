@@ -2,7 +2,7 @@ node {
    def mvnHome
    stage('Preparation') {
       // Get some code from a GitHub repository
-      git 'https://github.com/ibwgr/CompositeBuilder.git'
+      checkout scm
       // ** NOTE: This 'Maven 3' Maven tool must be configured in the global configuration.
       mvnHome = tool 'Maven 3'
    }
@@ -13,10 +13,11 @@ node {
       junit 'target/surefire-reports/TEST-*.xml'
       archive 'target/*.jar'
    }
-   stage('SonarQube analysis') {
-       def scannerHome = tool 'SonarQube Scanner 3';
-       withSonarQubeEnv('local sonar qube') {
-         sh "${scannerHome}/bin/sonar-scanner"
-       }
-     }
+   //stage('SonarQube analysis') {
+   //   // ** NOTE: This 'SonarQube Scanner 3' tool must be configured in the global configuration.
+   //    def scannerHome = tool 'SonarQube Scanner 3';
+   //    withSonarQubeEnv('local sonar qube') {
+   //      sh "${scannerHome}/bin/sonar-scanner"
+   //    }
+   //}
 }
