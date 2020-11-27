@@ -1,7 +1,7 @@
 pipeline {
    agent any
-   def mvnHome
    stages {
+    def mvnHome
     stage('Preparation') {
        // Get some code from a GitHub repository
        checkout scm
